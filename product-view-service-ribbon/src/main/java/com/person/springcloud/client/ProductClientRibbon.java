@@ -8,17 +8,16 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 
-
 @Component
 public class ProductClientRibbon {
     @Autowired
     RestTemplate restTemplate;
 
 
-    public List<Product> productRibbon(){
+    public List<Product> productRibbon() {
 
         //http://PRODUCT-DATA-SERVICE/products表示注册服务中心中已经注册的名称/访问地址
-        return restTemplate.getForObject("http://PRODUCT-DATA-SERVICE/products",List.class);
+        return restTemplate.getForObject("http://PRODUCT-DATA-SERVICE/products", List.class);
 
     }
 

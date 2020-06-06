@@ -1,0 +1,15 @@
+thymeleaf:
+  servlet:
+    content-type: text/html
+  mode: HTML5
+  encoding: UTF-8
+  cache: false
+  prefix: classpath:/tempaltes
+  suffix: .html
+spring:
+application:
+  name: product-view-service-feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
