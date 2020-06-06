@@ -8,7 +8,11 @@ import com.sun.corba.se.impl.logging.InterceptorsSystemException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
@@ -27,6 +31,10 @@ cancel()：取消任务
 get()：等待任务执行完成，并获取执行结果
 
 get(long timeout, TimeUnit unit)：在指定的时间内会等待任务执行，超时则抛异常。
+ */
+
+/*
+这里主要是为了进行微服务注册
  */
 @SpringBootApplication
 @EnableEurekaClient
@@ -76,5 +84,8 @@ public class ProductDataServiceApplication {
 
         new SpringApplicationBuilder(ProductDataServiceApplication.class).properties("server.port=" + port).run(args);
     }
+
+
+
 
 }
