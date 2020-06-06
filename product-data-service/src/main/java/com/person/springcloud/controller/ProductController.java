@@ -17,9 +17,7 @@ public class ProductController {
     @RequestMapping("/products")
     public Object listProducts(){
         List<Product> products = productService.listProducts();
-
         return products;
-
     }
 
 }

@@ -1,5 +1,6 @@
 package com.person.springcloud;
 
+import brave.sampler.Sampler;
 import cn.hutool.core.convert.Convert;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.NetUtil;
@@ -68,24 +69,27 @@ public class ProductDataServiceApplication {
 
         });
 
-        try{
+        try {
             //get(long timeout, TimeUnit unit)：在指定的时间内会等待任务执行，超时则抛异常。
             port = future.get(5, TimeUnit.SECONDS);
-        }catch (InterruptedException | TimeoutException | ExecutionException e){
-            port=defaultPort;
+        } catch (InterruptedException | TimeoutException | ExecutionException e) {
+            port = defaultPort;
 
         }
 
 
-        if(!NetUtil.isUsableLocalPort(port)) {
-            System.err.printf("端口%d被占用了，无法启动%n", port );
+        if (!NetUtil.isUsableLocalPort(port)) {
+            System.err.printf("端口%d被占用了，无法启动%n", port);
             System.exit(1);
         }
 
         new SpringApplicationBuilder(ProductDataServiceApplication.class).properties("server.port=" + port).run(args);
     }
 
+    //链路追踪服务器
+    @Bean
+    public Sampler defaultSampler() {
+        return Sampler.ALWAYS_SAMPLE;
 
-
-
+    }
 }
