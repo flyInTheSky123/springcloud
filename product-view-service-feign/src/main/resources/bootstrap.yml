@@ -4,6 +4,7 @@ spring:
   cloud:
     config:
       label: master
+      #这里的dev 表示 xx-xxx-xxx-dev.properties(即respo目录下的一个配置文件)
       profile: dev
       discovery:
         enabled:  true
