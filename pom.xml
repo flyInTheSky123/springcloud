@@ -55,6 +55,8 @@
         <module>product-view-service-ribbon</module>
         <module>product-view-service-feign</module>
         <module>config-server</module>
+        <module>hystrix-dashboard</module>
+        <module>turbine</module>
     </modules>
 
 </project>
