@@ -4,7 +4,7 @@ spring:
   cloud:
     config:
       label: master
-      #这里的dev 表示 xx-xxx-xxx-dev.properties(即respo目录下的一个配置文件)
+      #这里的dev 表示 xx-xxx-xxx-dev.properties(即respo目录下的一个配置文件),即访问config-server中的配置信息
       profile: dev
       discovery:
         enabled:  true
@@ -12,3 +12,16 @@ spring:
   client:
     serviceUrl:
       defaultZone:  http://localhost:8761/eureka/
+
+
+      #总线配置
+      bus:
+        enabled: true
+        trace:
+          enabled: true
+          #rabbitmq 配置
+          rabbitmq:
+            host: localhost
+            port: 5672
+            username: guest
+            password: guest

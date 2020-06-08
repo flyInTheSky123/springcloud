@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@FeignClient("PRODUCT-DATA-SERVICE")
+
+@FeignClient(value = "PRODUCT-DATA-SERVICE",fallback =ProductClientFeignHystrix.class )
 public interface ProductClientFeign {
 
     @GetMapping("/products")
