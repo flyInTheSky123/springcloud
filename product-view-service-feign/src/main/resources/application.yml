@@ -23,3 +23,8 @@ management:
       cors:
         allowed-origins: "*"
         allowed-methods: "*"
+#断路器开启：
+feign:
+  hystrix:
+    enabled: true
+
